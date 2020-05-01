@@ -1,0 +1,4 @@
+<!--pages/list/list.wxml-->
+<view class="r_text">
+  <rich-text nodes="{{html}}"></rich-text>
+</view>

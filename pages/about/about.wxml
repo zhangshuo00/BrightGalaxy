@@ -1,0 +1,6 @@
+<!--pages/about/about.wxml-->
+<view class="contain">
+  <text>开发者信息
+  张朔
+  email: easonzhang5002@gmail.com</text>
+</view>

@@ -1,0 +1,16 @@
+/* pages/search/search.wxss */
+.container{
+  padding: 20rpx;
+  width: 100%;
+}
+.container input{
+  border-bottom: solid 6rpx blanchedalmond;
+  line-height: 30rpx;
+  margin-top: 150rpx;
+  margin-bottom: 30rpx;
+}
+.container button{
+  max-width: 300rpx;
+  width: 400rpx;
+  font-size: 30rpx;
+}

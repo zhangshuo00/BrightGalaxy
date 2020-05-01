@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/search/search",
+    "pages/list/list",
+    "pages/about/about"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Space",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar":{
+    "list":[
+      {
+        "pagePath": "pages/search/search",
+        "iconPath": "images/search.png",
+        "selectedIconPath": "images/search.png",
+        "text": "Search"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "iconPath": "images/about.png",
+        "selectedIconPath": "images/about.png",
+        "text": "About"
+      }
+    ]
+  }
+}
