@@ -1,4 +1,4 @@
-// pages/about/about.js
+// pages/logEvent/logEvent.js
 Page({
 
   /**

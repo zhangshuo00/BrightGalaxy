@@ -1,5 +1,0 @@
-/* pages/list/list.wxss */
-.r_text{
-  margin: 30rpx;
-  color:black;
-}

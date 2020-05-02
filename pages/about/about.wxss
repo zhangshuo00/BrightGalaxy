@@ -1,6 +1,0 @@
-/* pages/about/about.wxss */
-.contain{
-  margin-top: 150rpx;
-  margin-left: 50rpx;
-  /* font-size: 25rpx; */
-}
