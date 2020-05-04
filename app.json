@@ -3,8 +3,8 @@
     "pages/timeline/timeline",
     "pages/personalLine/personalLine",
     "pages/logEvent/logEvent",
-    "pages/today/today",
     "pages/eventDetail/eventDetail",
+    "pages/today/today",
     "pages/me/me"
   ],
   "window": {
