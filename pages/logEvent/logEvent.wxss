@@ -1,1 +1,19 @@
 /* pages/logEvent/logEvent.wxss */
+page{
+  background-color:#fff;
+}
+.add_box{
+  width: 100%;
+  height: 100%;
+}
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+.txtcolor{
+  color: rgb(59, 59, 59);
+}
+.setfixed{
+  position: absolute;
+  width: 100%;
+  bottom: 100rpx;
+}

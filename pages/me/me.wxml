@@ -1,2 +1,28 @@
 <view>
+  <view class="headbox">
+    <image src='/images/head.jpg' class="headimg"></image>
+    <view class="username">用户名</view>
+  </view>
+ 
+  <view class="cu-list menu margin-top">
+    <view class="cu-item arrow">
+      <view class="content">
+        <text class="cuIcon-writefill text-orange"></text>
+        <text class="text-grey">反馈</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content">
+        <text class="cuIcon-circlefill text-green"></text>
+        <text class="text-grey">关于</text>
+      </view>
+    </view>
+  </view>
+  <view class="cu-bar btn-group setfixed outlogin">
+    <button 
+    class="cu-btn bg-red shadow-blur round lg"
+    bindtap="showModal" 
+    data-target="Modal"
+    >解除绑定</button>
+  </view>
 </view>
