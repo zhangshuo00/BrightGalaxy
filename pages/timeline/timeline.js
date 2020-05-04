@@ -5,14 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    name: 'wechat'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+   
   },
 
   /**
@@ -74,7 +74,24 @@ Page({
         url: '/pages/list/list?kwd=' + f.detail.value.userInput,
       });
     }
-
-
+  },
+  getData: function(e) {
+    var self = this;
+    wx.request({
+      url: 'https://abc.acrosstheuniverse.top/sign',
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success(res){
+        self.setData({
+          name: res.data.msg
+        })
+        console.log(res.data)
+      },
+      fail(err){
+        console.log(err)
+      }
+    })
   }
 })

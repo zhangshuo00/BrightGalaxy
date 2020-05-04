@@ -15,7 +15,8 @@
   border-radius: 75rpx;
 }
 .username{
-  margin-top: 5rpx;
+  font-size: 35rpx;
+  margin-top: 20rpx;
 }
 .outlogin{
   position: absolute;

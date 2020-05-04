@@ -1,7 +1,7 @@
 <view>
   <view class="headbox">
-    <image src='/images/head.jpg' class="headimg"></image>
-    <view class="username">用户名</view>
+    <image src="{{userInfo.avatarUrl}}" class="headimg"></image>
+    <text class="username" bindtap="login">{{userInfo.nickName}}</text>
   </view>
  
   <view class="cu-list menu margin-top">
@@ -18,11 +18,11 @@
       </view>
     </view>
   </view>
-  <view class="cu-bar btn-group setfixed outlogin">
+  <!-- <view class="cu-bar btn-group setfixed outlogin">
     <button 
     class="cu-btn bg-red shadow-blur round lg"
     bindtap="showModal" 
     data-target="Modal"
     >解除绑定</button>
-  </view>
+  </view> -->
 </view>

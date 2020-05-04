@@ -5,14 +5,58 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+      userInfo:{
+          nickName:'登录',
+          avatarUrl: '../../images/head.jpg'
+      }
   },
-
+  login: function(){
+      var that = this;
+      wx.getUserInfo({
+          success: function(res){
+              that.setData({
+                  userInfo:{
+                      nickName: res.userInfo.nickName,
+                      avatarUrl: res.userInfo.avatarUrl
+                  }
+              })
+          }
+      })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      var that = this;
+      wx.checkSession({
+          success: function () {
+            //   console.log('处于登录态');
+              that.login();
+          },
+          fail: function () {
+              console.log('需要重新登录');
+              wx.login({
+                  success: function (res) {
+                      // console.log(res.code)
+                      wx.request({
+                          url: 'https://abc.acrosstheuniverse.top/login',
+                          method: 'POST',
+                          data: { code: res.code },
+                          header: {
+                              'content-type': 'application/json'
+                          },
+                          success: function (res) {
+                              try {
+                                  wx.setStorageSync('skey', res.skey)
+                              }catch(e){
 
+                              }
+                          }
+                      })
+                  }
+              })
+          }
+      })
   },
 
   /**

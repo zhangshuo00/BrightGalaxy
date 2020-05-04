@@ -4,12 +4,9 @@
     <input type="text" name="userInput"></input>
     <button form-type="submit" name="submit">Click To Query API</button>
   </form>
-  <view style="color:black;margin-top:30rpx;font-size:35rpx"><text>{{error}}</text></view>
-  <view style="padding-top:20rpx;font-size:35rpx">
-    <view>可查询API ：</view>
-      <view style="padding-top:20rpx">promise、arrow-function</view>
-      <view>fetch、closure、async-await</view>
-      <view>net、personlInfo、nodeJsone</view>
-      <view>nodeJs笔记（二）、nodeJs笔记（三）</view>
+
+  <view style="color:black;margin-top:50rpx;font-size:35rpx">
+    <button style="margin-top:50rpx" type="primary" bindtap="getData">测试get请求</button>
+    <text>{{name}}</text>
   </view>
 </view>
