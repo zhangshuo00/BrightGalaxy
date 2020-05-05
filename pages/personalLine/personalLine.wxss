@@ -1,1 +1,23 @@
 /* pages/personalLine/personalLine.wxss */
+page{
+  background: #fff;
+}
+.outbox{
+  max-height: 500rpx;
+  overflow: hidden;
+}
+.imgs{
+  width: 100%;
+  height: 50rpx;
+}
+.time{
+  margin-left: 4%;
+}
+.hidetag{
+  display: 'none'
+}
+.ishide{
+  position: absolute;
+  right: 8%;
+  float: right;
+}

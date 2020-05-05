@@ -1,82 +1,42 @@
-<view class="cu-timeline">
-  <view class="cu-time">昨天</view>
-  <view class="cu-item cur cuIcon-noticefill text-green">
-    <view class="content bg-green shadow-blur">
-      <text>22:22</text> 【广州市】快件已到达地球
-    </view>
-  </view>
-  <view class="cu-item text-red cuIcon-attentionforbidfill">
-    <view class="content bg-red shadow-blur">
-      这是第一次，我家的铲屎官走了这么久。久到足足有三天！！
-    </view>
-  </view>
-  <view class="cu-item text-grey cuIcon-evaluate_fill">
-    <view class="content bg-grey shadow-blur">
-      这是第一次，我家的铲屎官走了这么久。
-    </view>
-  </view>
-  <view class="cu-item text-blue">
-    <view class="bg-blue content">
-      <text>20:00</text> 【月球】快件已到达月球，准备发往地球
-    </view>
-    <view class="bg-cyan content">
-      <text>10:00</text> 【银河系】快件已到达银河系，准备发往月球
-    </view>
-  </view>
+<view class="cu-form-group">
+		<view class="title">事迹排列</view>
+		<picker mode="multiSelector" bindchange="MultiChange" bindcolumnchange="MultiColumnChange" value="{{multiIndex}}"
+		 range="{{multiArray}}">
+			<view class="picker">
+				{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+			</view>
+		</picker>
 </view>
 
-<view class="cu-timeline">
-  <view class="cu-time">06-17</view>
-  <view class="cu-item">
-    <view class="content">
-      <text>01:30</text> 【喵星】 MX-12138 已揽收，准备发往银河系
-    </view>
-  </view>
-</view>
-
-<view class="cu-timeline">
-  <view class="cu-time">06-17</view>
-  <view class="cu-item">
-    <view class="content">
-      <view class="cu-capsule radius">
-        <view class="cu-tag bg-cyan">上午</view>
-        <view class="cu-tag line-cyan">10:00</view>
-      </view>
-      <view class="margin-top">这是第一次，我家的铲屎官走了这么久。久到足足有三天！！ 在听到他的脚步声响在楼梯间的那一刻，我简直想要破门而出，对着他狠狠地吼上10分钟，然后再看心情要不要他进门。</view>
-    </view>
-  </view>
-  <view class="cu-item text-blue">
-    <view class="bg-blue shadow-blur content">
-      <view class="cu-list menu-avatar radius">
-        <view class="cu-item">
-          <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
-          <view class="content">
-            <view class="text-grey">文晓港</view>
-            <view class="text-gray text-sm">
-              <text class="cuIcon-infofill text-red"></text> 消息未送达</view>
-          </view>
-          <view class="action">
-            <view class="text-grey text-xs">22:20</view>
-            <view class="cu-tag round bg-grey sm">5</view>
-          </view>
+<view class="" wx:for="{{current}}" wx:key>
+  <view class="cu-timeline {{index==flag?'':'outbox'}}">
+    <view class="cu-time time">{{item.date}}</view>
+    <view class="cu-item {{item.tag=='默认'?'text-blue':''}} {{item.tag=='时事'?'text-red':''}} {{item.tag=='新闻'?'text-orange':''}} {{item.tag=='生活'?'text-green':''}} {{item.tag=='旅游'?'text-pink':''}} {{item.tag=='情感'?'text-purple':''}}">
+      <view class="content">
+        <view
+        class="cu-capsule radius margin-bottom">
+          <view style="display: {{item.tag=='默认'?'none':''}}"
+          class="cu-tag {{item.tag=='时事'?'bg-red':''}} {{item.tag=='新闻'?'bg-orange':''}} {{item.tag=='生活'?'bg-green':''}} {{item.tag=='旅游'?'bg-pink':''}} {{item.tag=='情感'?'bg-purple':''}}">{{item.tag}}</view>
+          <view class="cu-tag">{{item.title}}</view>
+          <text 
+          id='hid{{index}}'
+          class="{{index!=flag?'cuIcon-unfold':'cuIcon-fold'}} ishide text-black" 
+          bindtap="ishidebox"></text>
         </view>
-        <view class="cu-item">
-          <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);">
-            <view class="cu-tag badge">99+</view>
-          </view>
-          <view class="content">
-            <view class="text-grey">文晓港
-              <view class="cu-tag round orange sm">SVIP</view>
-            </view>
-            <view class="text-gray text-sm">
-              <text class="cuIcon-redpacket_fill text-red"></text> 收到红包</view>
-          </view>
-          <view class="action">
-            <view class="text-grey text-xs">22:20</view>
-            <text class="cuIcon-notice_forbid_fill text-gray"></text>
-          </view>
+        <view>{{item.text==''?'':item.text}}</view>
+        <view 
+        style="display:{{item.imgs.length==0?'none':''}}"
+        wx:for="{{item.imgs}}" 
+        wx:for-item="newitem"
+        wx:key="*this">
+        <image 
+        mode="widthFix"
+        src="{{newitem}}" 
+        class="imgs"></image>
         </view>
       </view>
     </view>
-  </view>
+  </view> 
 </view>
+
+
