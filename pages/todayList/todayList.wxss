@@ -1,0 +1,70 @@
+/* pages/todayList.wxss */
+/* event */
+.event{
+  padding-top: 20rpx;
+  padding-bottom: 40rpx;
+  padding-left: 5%;
+  padding-right: 5%;
+  background: #fff;
+}
+.event-head{
+  height: 70rpx;
+  padding: 17.5rpx 0;
+}
+.event-head-dot{
+  height: 20rpx;
+  width: 20rpx;
+  margin-top: 15rpx;
+  float: left;
+  border-radius: 20rpx;
+  background: rgb(129, 94, 51);
+}
+.event-head-text{
+  float: left;
+  font-size: 35rpx;
+  font-weight: 1000;
+  color: rgb(129, 94, 51);
+  margin-left: 15rpx;
+  /* background: #000; */
+}
+.event-list{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  /* background: #000; */
+}
+.event-card{
+  height: 180rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  /* background: #fff; */
+  display: flex;
+  /* flex-direction: 'row'; */
+}
+.event-card-left{
+  flex: 1;
+  background: #3228;
+}
+.event-card-img{
+  width: 100%;
+  height: 100%;
+  background: #000
+}
+.event-card-right{
+  flex: 2;
+  padding-left: 20rpx;
+  /* background: #3222; */
+}
+.event-card-title{
+  font-size: 30rpx;
+  font-weight: 1000;
+}
+.event-card-time{
+  font-size: 30rpx;
+  color: rgb(129, 94, 51);
+  margin-left: 20rpx;
+}
+.event-card-text{
+  padding-top: 10rpx;
+  font-size: 30rpx;
+  color: grey
+}

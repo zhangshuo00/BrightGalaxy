@@ -2,40 +2,48 @@
 
 <view>
   <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-  <swiper-item wx:for="{{swiperList}}" wx:key>
-    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
-    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
-  </swiper-item>
-</swiper>
+    <swiper-item wx:for="{{swiperList}}" wx:key>
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    </swiper-item>
+  </swiper>
 </view>
 <view class="timebox">
   <text class="time">{{date}}</text>
 </view>
 <view class="indexbox">
-  <view class="index">
-    <view class="index-icon">
-      <text decode="true">&lt;</text>
+  <navigator url="/pages/todayList/todayList?type=pre" open-type="navigate" class="index">
+    <view class="index">
+      <view class="index-icon">
+        <text decode="true">&lt;</text>
+      </view>
+      <view class="index-text">昨日历史</view>
     </view>
-    <view class="index-text">昨日历史</view>
-  </view>
-  <view class="index">
-    <view class="index-icon">
-      <text>今</text>
+  </navigator>
+  <navigator url="/pages/todayList/todayList?type=today" open-type="navigate" class="index">
+    <view class="index">
+      <view class="index-icon">
+        <text>今</text>
+      </view>
+      <view class="index-text">今日历史</view>
     </view>
-    <view class="index-text">今日历史</view>
-  </view>
-  <view class="index">
-    <view class="index-icon">
-      <text>查</text>
+  </navigator>
+  <navigator url="/pages/todayList/todayList?type=search" open-type="navigate" class="index">
+    <view class="index">
+      <view class="index-icon">
+        <text>查</text>
+      </view>
+      <view class="index-text">日期搜索</view>
     </view>
-    <view class="index-text">日期搜索</view>
-  </view>
-  <view class="index">
-    <view class="index-icon">
-      <text decode="true">&gt;</text>
+  </navigator>
+  <navigator url="/pages/todayList/todayList?type=next" open-type="navigate" class="index">
+    <view class="index">
+      <view class="index-icon">
+        <text decode="true">&gt;</text>
+      </view>
+      <view class="index-text">明日历史</view>
     </view>
-    <view class="index-text">明日历史</view>
-  </view>
+  </navigator>
 </view>
 <view class="event">
   <view class="event-head">
@@ -43,7 +51,7 @@
     <text class="event-head-text">历史上的今天</text>
   </view>
   <view class="event-list">
-    <view class="event-card">
+    <navigator url="/pages/eventDetail/eventDetail" open-type="navigate" class="event-card">
       <view class="event-card-left">
         <image class="event-card-img"></image>
       </view>
@@ -56,34 +64,6 @@
           <view class="event-card-text">事件摘抄引入</view>
         </view>
       </view>
-    </view>
-    <view class="event-card">
-      <view class="event-card-left">
-        <image class="event-card-img"></image>
-      </view>
-      <view class="event-card-right">
-        <view>
-          <text class="event-card-title">事件名称</text>
-          <text class="event-card-time">事件时间</text>
-        </view>
-        <view>
-          <view class="event-card-text">事件摘抄引入</view>
-        </view>
-      </view>
-    </view>
-    <view class="event-card">
-      <view class="event-card-left">
-        <image class="event-card-img"></image>
-      </view>
-      <view class="event-card-right">
-        <view>
-          <text class="event-card-title">事件名称</text>
-          <text class="event-card-time">事件时间</text>
-        </view>
-        <view>
-          <view class="event-card-text">事件摘抄引入</view>
-        </view>
-      </view>
-    </view>
+    </navigator>
   </view>
 </view>

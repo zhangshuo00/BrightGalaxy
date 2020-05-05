@@ -5,6 +5,7 @@
     "pages/logEvent/logEvent",
     "pages/eventDetail/eventDetail",
     "pages/today/today",
+    "pages/todayList/todayList",
     "pages/me/me"
   ],
   "window": {
@@ -14,10 +15,10 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "tabBar":{
+  "tabBar": {
     "color": "#000000",
     "selectedColor": "#3894FF",
-    "list":[
+    "list": [
       {
         "pagePath": "pages/timeline/timeline",
         "iconPath": "images/salescenter.png",

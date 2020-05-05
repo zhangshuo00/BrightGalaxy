@@ -1,0 +1,53 @@
+<!--pages/todayList.wxml-->
+<text>pages/todayList.wxml</text>
+<text>该页面为{{type}}</text>
+<view class="event">
+  <view class="event-head">
+    <view class="event-head-dot"></view>
+    <text class="event-head-text">历史上的今天</text>
+  </view>
+  <view class="event-list">
+    <navigator url="/pages/eventDetail/eventDetail" open-type="navigate" class="event-card">
+      <view class="event-card-left">
+        <image class="event-card-img"></image>
+      </view>
+      <view class="event-card-right">
+        <view>
+          <text class="event-card-title">事件名称</text>
+          <text class="event-card-time">事件时间</text>
+        </view>
+        <view>
+          <view class="event-card-text">事件摘抄引入</view>
+        </view>
+      </view>
+    </navigator>
+        <navigator url="/pages/eventDetail/eventDetail" open-type="navigate" class="event-card">
+      <view class="event-card-left">
+        <image class="event-card-img"></image>
+      </view>
+      <view class="event-card-right">
+        <view>
+          <text class="event-card-title">事件名称</text>
+          <text class="event-card-time">事件时间</text>
+        </view>
+        <view>
+          <view class="event-card-text">事件摘抄引入</view>
+        </view>
+      </view>
+    </navigator>
+        <navigator url="/pages/eventDetail/eventDetail" open-type="navigate" class="event-card">
+      <view class="event-card-left">
+        <image class="event-card-img"></image>
+      </view>
+      <view class="event-card-right">
+        <view>
+          <text class="event-card-title">事件名称</text>
+          <text class="event-card-time">事件时间</text>
+        </view>
+        <view>
+          <view class="event-card-text">事件摘抄引入</view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
