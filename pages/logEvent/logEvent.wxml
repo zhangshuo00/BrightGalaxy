@@ -1,14 +1,19 @@
 <!--pages/logEvent/logEvent.wxml-->
 <view class="add_box">
- <form>
+ <form bindsubmit='formSubmit' data-target="Modal">
   <view class="cu-form-group">
 		<view class="title">标题</view>
-		<input placeholder="设定一个事件标题吧"></input>
+		<input placeholder="设定一个事件标题吧" name="title" value="{{title}}"></input>
 	</view>
-
   <view class="cu-form-group">
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="想记录下来的身边大小事件..."></textarea>
+		<textarea name="text" value="{{text}}" maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="想记录下来的身边大小事件..."></textarea>
 	</view>
+  <view class="cu-bar btn-group setfixed">
+    <button 
+    form-type='submit'
+    class="cu-btn bg-blue shadow-blur round lg"
+    >保存</button>
+  </view>
  </form>
  <view class="cu-bar bg-white">
 		<view class="action">
@@ -68,41 +73,4 @@
     </view>
   </view>
 
-  <view class="cu-bar btn-group setfixed">
-    <button 
-    class="cu-btn bg-blue shadow-blur round lg"
-    bindtap="showModal" 
-    data-target="Modal"
-    >保存</button>
-  </view>
-
-  <view class="cu-modal {{modalName=='Modal'?'show':''}}">
-    <view class="cu-dialog">
-      <view class="cu-bar bg-white justify-end">
-        <view class="content">提示</view>
-        <view class="action" bindtap="hideModal">
-          <text class="cuIcon-close text-red"></text>
-        </view>
-      </view>
-      <view class="padding-xl">
-        保存成功！可以去查看了哦
-      </view>
-    </view>
-  </view>
-
 </view>
-
-
-<!--
-<view class="cu-item {{menuArrow?'arrow':''}}">
-      <view class="content">
-        <text class="cuIcon-tagfill text-red"></text>
-        <text class="text-grey">标签</text>
-      </view>
-      <view class="action">
-        <view class="cu-tag round bg-orange light">音乐</view>
-        <view class="cu-tag round bg-olive light">电影</view>
-        <view class="cu-tag round bg-blue light">旅行</view>
-      </view>
-    </view>
--->

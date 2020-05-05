@@ -1,4 +1,5 @@
 // pages/me/me.js
+const app = getApp();
 Page({
 
   /**
@@ -8,9 +9,19 @@ Page({
       userInfo:{
           nickName:'登录',
           avatarUrl: '../../images/head.jpg'
-      }
+      },
+      hasUserInfo: false,
+      canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  login: function(){
+  //用户授权
+  getUserInfo: function (e) {
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    });
+  },
+  login: function(e){
       var that = this;
       wx.getUserInfo({
           success: function(res){
@@ -20,6 +31,9 @@ Page({
                       avatarUrl: res.userInfo.avatarUrl
                   }
               })
+          },
+          fail:function(res){
+            console.log(res); //未授权情况下
           }
       })
   },
@@ -27,14 +41,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(this.data.canIUse)
       var that = this;
       wx.checkSession({
           success: function () {
-            //   console.log('处于登录态');
+              //console.log('处于登录态');
               that.login();
           },
           fail: function () {
-              console.log('需要重新登录');
+              //console.log('需要重新登录');
               wx.login({
                   success: function (res) {
                       // console.log(res.code)
@@ -58,6 +73,7 @@ Page({
           }
       })
   },
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成

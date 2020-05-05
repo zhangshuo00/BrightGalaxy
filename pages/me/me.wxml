@@ -1,7 +1,9 @@
 <view>
   <view class="headbox">
     <image src="{{userInfo.avatarUrl}}" class="headimg"></image>
-    <text class="username" bindtap="login">{{userInfo.nickName}}</text>
+    <button class="username" open-type="getUserInfo" bindtap="login"
+    bindgetuserinfo="getUserInfo"
+    >{{userInfo.nickName}}</button>
   </view>
  
   <view class="cu-list menu margin-top">

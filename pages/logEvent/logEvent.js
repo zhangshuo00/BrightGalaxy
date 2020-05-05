@@ -17,7 +17,8 @@ Page({
     date: Y+'-'+M+'-'+D,
     imgList: [],
     modalName: null,
-    tagtxt:'默认'
+    tagtxt:'默认',
+    logtxt: '请先登录'
   },
   PickerChange(e) {
     console.log(e);
@@ -78,12 +79,12 @@ Page({
   showModal(e) {
     this.setData({
       modalName: e.currentTarget.dataset.target
-    })
+    });
   },
   hideModal(e) {
     this.setData({
       modalName: null
-    })
+    });
   },
   checkTag(e){
     let id = e.currentTarget.id.slice(3);
@@ -93,5 +94,63 @@ Page({
       tagtxt: value,
       changebg:bgColor
     });
+  },
+  formSubmit(e) {
+    console.log(e.detail.value.title);
+    console.log(e.detail.value.text);
+    console.log(this.data.date);
+    console.log(this.data.tagtxt);
+    console.log(this.data.imgList);
+    
+    var that = this;
+    var skey = '';
+    var title = e.detail.value.title;  //事件标题
+    var text = e.detail.value.text; //事件内容
+    var date = this.data.date; //事件日期
+    var tagtxt = this.data.tagtxt; //事件标签
+    var imgList = JSON.stringify(this.data.imgList);  //图片
+    if (wx.getStorageSync('skey')==''){
+      wx.showToast({
+        title: '请先登录!',
+        icon: 'none',
+        duration: 2000
+      });
+    }else{
+      skey = wx.getStorageSync('skey');
+      console.log(wx.getStorageSync('skey'),skey,'skey');
+    }
+    if(skey!='' && (title!='' || text!='' || imgList!='')){
+      console.log('开始提交');
+      wx.request({
+        method: "POST",
+        url: "",
+        data: {
+          'skey':skey,
+          'title': title,
+          'text': text,
+          'date': date,
+          'tagtxt': tagtxt,
+          'imgList': imgList
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          this.setData({ //表单清空
+            title: '',
+            text: '',
+            date: Y + '-' + M + '-' + D,
+            imgList: [],
+            tagtxt: '默认',
+            changebg: 'bg-blue'
+          });
+          wx.showToast({
+            title: '保存成功',
+            duration: 2000
+          });
+        }
+      });
+    }
+    
   }
 })

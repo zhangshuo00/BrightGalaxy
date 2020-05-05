@@ -23,3 +23,19 @@
   width: 100%;
   bottom: 100rpx;
 }
+button::after {
+  border: none;
+}
+button {
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  line-height:inherit;
+  border: 0;
+}
+button {
+  border-radius:0;
+}
+.button-hover{
+  background-color: transparent;
+}
