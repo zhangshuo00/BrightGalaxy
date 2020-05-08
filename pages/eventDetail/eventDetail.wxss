@@ -1,1 +1,73 @@
 /* pages/eventDetail/eventDetail.wxss */
+
+/* 内容 */
+
+.text {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  background: #fff;
+}
+
+.text-title {
+  /* padding-top: 20rpx; */
+  padding-bottom: 20rpx;
+}
+
+.text-title-big {
+  font-size: 50rpx;
+  font-weight: 1000;
+  color: rgb(129, 94, 51);
+  float: none;
+}
+
+.text-title-small {
+  font-size: 35rpx;
+  float: none;
+}
+
+/* text-card */
+
+.text-card-tag {
+  display: flex;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  /* background: #fff */
+}
+
+.text-card-tag-name {
+  flex: 2;
+  color: rgb(129, 94, 51);
+}
+
+.text-card-tag-text {
+  flex: 5;
+}
+
+.text-sumbox {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.event-head{
+  height: 70rpx;
+  /* padding: 10rpx 0; */
+  padding-top: 20rpx;
+}
+.event-head-dot{
+  height: 20rpx;
+  width: 20rpx;
+  margin-top: 15rpx;
+  float: left;
+  border-radius: 20rpx;
+  background: rgb(129, 94, 51);
+}
+.event-head-text{
+  float: left;
+  font-size: 35rpx;
+  font-weight: 1000;
+  color: rgb(129, 94, 51);
+  margin-left: 15rpx;
+  /* background: #000; */
+}

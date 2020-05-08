@@ -1,2 +1,147 @@
 <!--pages/eventDetail/eventDetail.wxml-->
-<text>pages/eventDetail/eventDetail.wxml</text>
+<!-- <text>pages/eventDetail/eventDetail.wxml</text> -->
+
+<!-- 轮播 -->
+<view>
+  <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+    <swiper-item wx:for="{{swiperList}}" wx:key>
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- 内容 -->
+<view class="text">
+  <!-- 标题 -->
+  <view class="text-title">
+    <view class="text-title-big">五四运动
+      <view class="cu-tag round bg-brown">近现代</view>
+    </view>
+    <view class="text-title-small">1919年青年学生组织的爱国运动</view>
+  </view>
+  <!-- 卡片信息 -->
+  <view class="text-card">
+    <view class="text-card-tag">
+      <text class="text-card-tag-name">中文名</text>
+      <text class="text-card-tag-text">五四运动</text>
+    </view>
+    <view class="text-card-tag">
+      <text class="text-card-tag-name">外文名</text>
+      <text class="text-card-tag-text">May Fourth Movement </text>
+    </view>
+    <view class="text-card-tag">
+      <text class="text-card-tag-name">性    质</text>
+      <text class="text-card-tag-text">毫不妥协的反帝反封建的爱国运动</text>
+    </view>
+  </view>
+  <!-- 概述 -->
+  <view class="event-head">
+    <view class="event-head-dot"></view>
+    <text class="event-head-text">事件概述</text>
+  </view>
+  <view class="text-sumbox">
+    <text class="text-sum">  五四运动，是1919年5月4日发生在北京的一场以青年学生为主，广大群众、市民、工商人士等阶层共同参与的，通过示威游行、请愿、罢工、暴力对抗政府等多种形式进行的爱国运动，是中国人民彻底的反对帝国主义、封建主义的爱国运动，又称“五四风雷”。
+  起因，第一次世界大战期间，欧洲列强无暇东顾，日本乘机加强对中国的侵略，严重损害了中国的主权。中国人民的反日情绪日渐增长。1919年巴黎和会上中国外交的失败，引发了伟大的五四运动。
+从1918年11月的“公理战胜强权”庆典，到次年1月的巴黎会议，短短两个月时间，当时的中国充分诠释了“自古弱国无外交” 的定律，所谓的“公理战胜强权”不过是一个美丽的童话。面对这样屈辱的局面，从5月4日开始，北京的学生纷纷罢课，组织演讲、宣传，随后天津、上海、广州、南京、杭州、武汉、济南的学生、工人也给予支持。
+  五四运动直接影响了中国共产党的诞生和发展，中国共产党党史一般将其定义为“反帝反封建的爱国运动”（注意这里的“封建”一词是泛化的封建观），并以此运动作为旧民主主义革命和新民主主义革命的分水岭。
+  2019年4月30日10时30分，纪念五四运动100周年大会在人民大会堂举行。</text>
+  </view>
+  <view class="event-head">
+    <view class="event-head-dot"></view>
+    <text class="event-head-text">历史特点</text>
+  </view>
+  <view class="text-sumbox">
+    <text class="text-sum">  由于五四运动是在新的社会历史条件下发生的，它具有以辛亥革命为代表的旧民主主义革命所不具备的一些特点。主要是：
+第一，五四运动表现了反帝反封建的彻底性。
+近代以来，中国人民对帝国主义的认识经历了两个阶段。第一个阶段是表面的感性认识阶段，这典型地表现为义和团等笼统的排外主义的斗争上。第二阶段才进到理性的认识阶段，即看出了帝国主义内部和外部的各种矛盾，并看出了帝国主义联合中国买办阶级和封建阶级以压榨中国人民大众的实质，这种认识是从1919年五四运动前后才开始的。在这场运动中，提出了“改造抢到世界，不认秘密外交，实行民族自决”和“另起炉灶，组织新政府”这样的口号。这表明，中国人民反帝反封建的斗争提升到一个新的水平线上了。
+ 
+新申报对“五四运动”的报道 
+第二，五四运动是一次真正的群众运动。
+如果说，辛亥革命的根本弱点之一，是没有广泛地动员和组织群众，那么，五四运动本身就是一场群众性的革命运动。中国工人阶级、学生群众和新兴的民族资产阶级参加到运动中。（注意:此时还没有农民阶级！只有部分农民阶级参加了）
+第三，五四运动促进了马克思主义在中国的传播及其与中国工人运动的结合。
+第四，五四运动是由学生先发起，由工人扩大的坚决的反帝运动，是无产阶级领导的新民主主义革命。
+第五，五四运动是新民主主义革命阶段的开端。</text>
+  </view>
+</view>
+<!-- 主要经过（时间轴） -->
+<!-- <view class="cu-timeline">
+  <view class="cu-time">昨天</view>
+  <view class="cu-item cur cuIcon-noticefill">
+    <view class="content bg-green shadow-blur">
+      <text>22:22</text> 【广州市】快件已到达地球
+    </view>
+  </view>
+  <view class="cu-item text-red cuIcon-attentionforbidfill">
+    <view class="content bg-red shadow-blur">
+      这是第一次，我家的铲屎官走了这么久。久到足足有三天！！
+    </view>
+  </view>
+  <view class="cu-item text-grey cuIcon-evaluate_fill">
+    <view class="content bg-grey shadow-blur">
+      这是第一次，我家的铲屎官走了这么久。
+    </view>
+  </view>
+  <view class="cu-item text-blue">
+    <view class="bg-blue content">
+      <text>20:00</text> 【月球】快件已到达月球，准备发往地球
+    </view>
+    <view class="bg-cyan content">
+      <text>10:00</text> 【银河系】快件已到达银河系，准备发往月球
+    </view>
+  </view>
+</view>
+<view class="cu-timeline">
+  <view class="cu-time">06-17</view>
+  <view class="cu-item">
+    <view class="content">
+      <text>01:30</text> 【喵星】 MX-12138 已揽收，准备发往银河系
+    </view>
+  </view>
+</view>
+<view class="cu-timeline">
+  <view class="cu-time">06-17</view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">上午</view>
+        <view class="cu-tag line-cyan">10:00</view>
+      </view>
+      <view class="margin-top">这是第一次，我家的铲屎官走了这么久。久到足足有三天！！ 在听到他的脚步声响在楼梯间的那一刻，我简直想要破门而出，对着他狠狠地吼上10分钟，然后再看心情要不要他进门。</view>
+    </view>
+  </view>
+  <view class="cu-item text-blue">
+    <view class="bg-blue shadow-blur content">
+      <view class="cu-list menu-avatar radius">
+        <view class="cu-item">
+          <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+          <view class="content">
+            <view class="text-grey">文晓港</view>
+            <view class="text-gray text-sm">
+              <text class="cuIcon-infofill text-red"></text> 消息未送达</view>
+          </view>
+          <view class="action">
+            <view class="text-grey text-xs">22:20</view>
+            <view class="cu-tag round bg-grey sm">5</view>
+          </view>
+        </view>
+        <view class="cu-item">
+          <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);">
+            <view class="cu-tag badge">99+</view>
+          </view>
+          <view class="content">
+            <view class="text-grey">文晓港
+              <view class="cu-tag round orange sm">SVIP</view>
+            </view>
+            <view class="text-gray text-sm">
+              <text class="cuIcon-redpacket_fill text-red"></text> 收到红包</view>
+          </view>
+          <view class="action">
+            <view class="text-grey text-xs">22:20</view>
+            <text class="cuIcon-notice_forbid_fill text-gray"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> -->

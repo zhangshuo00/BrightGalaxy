@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/timeline/timeline",
-    "pages/personalLine/personalLine",
     "pages/logEvent/logEvent",
-    "pages/eventDetail/eventDetail",
     "pages/today/today",
+    "pages/me/me",
+    "pages/eventDetail/eventDetail",
+    "pages/personalLine/personalLine",
     "pages/todayList/todayList",
-    "pages/me/me"
+    "pages/lineDetail/lineDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
