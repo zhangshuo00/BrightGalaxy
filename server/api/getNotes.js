@@ -3,14 +3,14 @@ var query = require('../db');
 var router = express.Router();
 
 router.post('/',async (req,res)=>{
-    const { skey,date,title,content,tag } = req.body;
+    const { skey } = req.body;
 
     var openid = await query('SELECT openid FROM user WHERE skey=?',[skey]);
     openid = JSON.parse(JSON.stringify(openid))[0].openid;
 
-    await query('INSERT INTO event (time,content,title,tag,openid) VALUES (?,?,?,?,?)',[date,content,title,tag,openid]);
-
-    res.send({"msg":"success"});
+    var notes = await query('SELECT eventid,time,title,content,tag FROM event WHERE openid=?',[openid]);
+    notes = JSON.parse(JSON.stringify(notes));
+    res.send({"msg":"success","notes":notes});
 });
 
 module.exports = router;

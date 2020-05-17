@@ -12,6 +12,9 @@ var figure = require('./api/figure');
 var glossary = require('./api/glossary');
 var getdynasty = require('./api/getdynasty');
 var getDynastyItems = require('./api/getDynastyItems');
+var addNotes = require('./api/addNotes');
+var getNotes = require('./api/getNotes');
+var feedback = require('./api/feedback');
 
 var app = express();
 
@@ -41,6 +44,9 @@ app.use('/figure',figure); //历史人物
 app.use('/glossary',glossary); //名称解释
 app.use('/getdynasty',getdynasty); //获取朝代
 app.use('/getDynastyItems',getDynastyItems); //获取朝代事件
+app.use('/addNotes',addNotes);// 添加个人事件
+app.use('/getNotes',getNotes); // 获取个人事件
+app.use('/feedback',feedback); // 用户反馈
 
 app.listen(8080,(err)=>{
     if(err) console.error(err);
