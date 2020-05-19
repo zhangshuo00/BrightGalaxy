@@ -14,7 +14,7 @@
 <!-- 轮播图 -->
 <view>
   <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-  <swiper-item wx:for="{{swiperList}}" wx:key>
+  <swiper-item wx:for="{{swiperList}}" wx:key='swiper'>
     <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
     <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
   </swiper-item>
@@ -41,7 +41,7 @@
 </scroll-view> -->
 <!-- 宫格展示 -->
 <view class="cu-list grid col-3">
-  <view class="cu-item" wx:for="{{icon}}" wx:key wx:if="{{item.isShow}}">
+  <view class="cu-item" wx:for="{{icon}}" wx:key='grid' wx:if="{{item.isShow}}">
     <!-- <text class="cuIcon-{{item.name}} lg text-gray"></text> -->
 <navigator url="/pages/lineDetail/lineDetail?dynasty={{item.name}}" open-type="navigate" class="cu-item">
     <view class="text-brown">{{item.name}}</view></navigator>

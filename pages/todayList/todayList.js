@@ -10,23 +10,7 @@ Page({
       title: 'title',
       time: 'time',
       text: 'text'
-    }, {
-      title: 'title1',
-      time: 'time1',
-      text: 'text1'
-    }, {
-      title: 'title2',
-      time: 'time2',
-      text: 'text2'
-    }, {
-      title: 'title3',
-      time: 'time3',
-      text: 'text3'
-    }, {
-      title: 'title4',
-      time: 'time4',
-      text: 'text4'
-    }, ]
+    }]
   },
 
   /**
@@ -34,11 +18,44 @@ Page({
    */
   onLoad: function(options) {
     console.log(options);
-    var time = options.time[0] + '月' + options.time[2] + '日'
+    // 赋值-时间标题和类型
+    var time = options.time.split(',')[0] + '月' + options.time.split(',')[1] + '日';
+    console.log(time)
     // 发送options.time日期 收到数据并改变list
     this.setData({
       type: options.type,
       title: time
+    })
+    // 赋值-数据list
+    var self=this;
+    wx.request({
+      url: 'https://abc.acrosstheuniverse.top/today',
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      data: { date: options.time.split(',')[0] + '月' + options.time.split(',')[1] + '日' }, //time[0] + '月' + time[1] + '日'
+      success(res) {
+        console.log(res.data);
+        var eventlistdata = [];
+        if (res.data.events) {
+          res.data.events.map((item, idx) => {
+            console.log(item.content.split('——'))
+            var json = {
+              title: 'title',
+              time: item.content.split('——')[0],
+              text: item.content.split('——')[1]
+            }
+            eventlistdata.push(json);
+          })
+        }
+        self.setData({
+          list: eventlistdata
+        })
+      },
+      fail(err) {
+        console.log(err)
+      }
     })
   },
 

@@ -56,6 +56,18 @@
     <text class="event-head-text">历史上的今天</text>
   </view>
   <view class="event-list">
+    <view class="event-card2" wx:for="{{eventlist}}" wx:key>
+          <view class="cu-tag round bg-brown event-card-time2">{{item.time}}</view>
+          <view class="event-card-text2">{{item.text}}</view>
+    </view>
+  </view>
+</view>
+<!-- <view class="event">
+  <view class="event-head">
+    <view class="event-head-dot"></view>
+    <text class="event-head-text">历史上的今天</text>
+  </view>
+  <view class="event-list">
     <navigator url="/pages/eventDetail/eventDetail?id={{item.title}}" open-type="navigate" class="event-card" wx:for="{{eventlist}}" wx:key>
       <view class="event-card-left">
         <image class="event-card-img"></image>
@@ -71,4 +83,4 @@
       </view>
     </navigator>
   </view>
-</view>
+</view> -->

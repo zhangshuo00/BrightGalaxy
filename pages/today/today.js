@@ -49,30 +49,7 @@ Page({
       title: 'title',
       time: 'time',
       text: 'text'
-    }, {
-      title: 'title1',
-      time: 'time1',
-      text: 'text1'
-    }, {
-      title: 'title2',
-      time: 'time2',
-      text: 'text2'
-    }, {
-      title: 'title3',
-      time: 'time3',
-      text: 'text3'
-    }, {
-      title: 'title4',
-      time: 'time4',
-      text: 'text4'
-    },]
-  },
-
-  IndexJump(e){
-    console.log('=====',e);
-    // wx.navigateTo({
-    //   url: '',
-    // })
+    }]
   },
 
   MultiChange(e) {
@@ -80,7 +57,7 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail.value)
     var search=[e.detail.value[0]+1,e.detail.value[1]+1]
     this.setData({
-      multiIndex: search
+      multiIndex: e.detail.value
     })
   wx.navigateTo({
     url: '/pages/todayList/todayList?type=search&time='+search,
@@ -138,6 +115,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    // 赋值-时间
     var DATE = util.formatDate(new Date());
     var time = [DATE.month,DATE.day];
     var pre = [DATE.month, DATE.day-1];
@@ -148,6 +126,37 @@ Page({
       todaytime: time,
       pretime: pre,
       nexttime: next
+    });
+    // 赋值-历史上的今天eventlist
+    var self=this;
+    wx.request({
+      url: 'https://abc.acrosstheuniverse.top/today',
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      data: { date: '5月13日' }, //time[0] + '月' + time[1] + '日'
+      success(res) {
+        console.log(res.data);
+        var eventlistdata=[];
+        if(res.data.events){
+          res.data.events.map((item,idx)=>{
+            console.log(item.content.split('——'))
+            var json={
+              title:'title',
+              time: item.content.split('——')[0],
+              text: item.content.split('——')[1]
+            }
+            eventlistdata.push(json);
+          })
+        }
+        self.setData({
+          eventlist:eventlistdata
+        })
+      },
+      fail(err) {
+        console.log(err)
+      }
     })
   },
 

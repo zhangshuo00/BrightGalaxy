@@ -42,6 +42,14 @@ Page({
    */
   onLoad: function(options) {
     console.log(options);
+    this.setData({
+      title: options.title,
+      time: options.time.split('年')[0] + '年',
+      text: options.text,
+      dyid: options.dyid,
+      historyid: options.historyid,
+      dynasty:options. dynasty
+    })
   },
 
   /**

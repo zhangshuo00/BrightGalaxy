@@ -1,1 +1,25 @@
 /* pages/lineDetail/lineDetail.wxss */
+
+/* 标题头 */
+.event-head{
+  height: 80rpx;
+  padding: 17.5rpx 7%;
+  /* background: rgb(129, 94, 51); */
+}
+.event-head-dot{
+  height: 20rpx;
+  width: 20rpx;
+  margin-top: 15rpx;
+  float: left;
+  border-radius: 20rpx;
+  /* background: rgb(129, 94, 51); */
+  background: #fff;
+}
+.event-head-text{
+  float: left;
+  font-size: 35rpx;
+  font-weight: 1000;
+  color: #fff;
+  margin-left: 15rpx;
+  /* background: #000; */
+}

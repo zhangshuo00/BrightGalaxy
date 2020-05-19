@@ -1,5 +1,6 @@
 /* pages/todayList.wxss */
 /* event */
+/* 图文形式 */
 .event{
   padding-top: 20rpx;
   padding-bottom: 40rpx;
@@ -65,6 +66,33 @@
 }
 .event-card-text{
   padding-top: 10rpx;
+  font-size: 30rpx;
+  color: grey
+}
+
+/* 时间轴形式 */
+.event-card2{
+  /* height: 50rpx; */
+  width: 100%;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  /* background: #fff; */
+  display: flex;
+  /* flex-direction: 'row'; */
+}
+.event-card-time2{
+  float: left;
+  width: 15%;
+  font-size: 30rpx;
+  color: #fff;
+  padding: 10rpx 10%;
+  /* margin-left: 20rpx; */
+}
+.event-card-text2{
+  float: left;
+  width: 85%;
+  padding-left: 20rpx;
+  padding-top: 5rpx;
   font-size: 30rpx;
   color: grey
 }

@@ -1,7 +1,23 @@
 <!--pages/todayList.wxml-->
 <!-- <text>pages/todayList.wxml</text> -->
 <!-- <text>该页面为{{type}}</text> -->
+
+<!-- 单条时间轴形式 -->
 <view class="event">
+  <view class="event-head">
+    <view class="event-head-dot"></view>
+    <text class="event-head-text">历史上的{{title}}</text>
+  </view>
+  <view class="event-list">
+    <view class="event-card2" wx:for="{{list}}" wx:key>
+          <view class="cu-tag round bg-brown event-card-time2">{{item.time}}</view>
+          <view class="event-card-text2">{{item.text}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- 图文形式 -->
+<!-- <view class="event">
   <view class="event-head">
     <view class="event-head-dot"></view>
     <text class="event-head-text">历史上的{{title}}</text>
@@ -36,4 +52,4 @@
       </view>
     </navigator>
   </view>
-</view>
+</view> -->
