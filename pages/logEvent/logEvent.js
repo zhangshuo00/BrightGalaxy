@@ -95,13 +95,7 @@ Page({
       changebg:bgColor
     });
   },
-  formSubmit(e) {
-    console.log(e.detail.value.title);
-    console.log(e.detail.value.text);
-    console.log(this.data.date);
-    console.log(this.data.tagtxt);
-    console.log(this.data.imgList);
-    
+  formSubmit(e) { 
     var that = this;
     var skey = '';
     var title = e.detail.value.title;  //事件标题
@@ -119,36 +113,51 @@ Page({
       skey = wx.getStorageSync('skey');
       console.log(wx.getStorageSync('skey'),skey,'skey');
     }
-    if(skey!='' && (title!='' || text!='' || imgList!='')){
-      console.log('开始提交');
+    
+    if(skey!='' && (title!='' || text!='' || imgList!='[]')){
+      console.log('开始提交',skey,date,title,text,tagtxt,imgList);
       wx.request({
         method: "POST",
-        url: "",
+        url: "https://abc.acrosstheuniverse.top/addNotes",
         data: {
-          'skey':skey,
-          'title': title,
-          'text': text,
-          'date': date,
-          'tagtxt': tagtxt,
-          'imgList': imgList
+          skey:skey,
+          date: date,
+          title: title,
+          content: text,
+          tag: tagtxt
+          //imgList: imgList
         },
         header: {
           'content-type': 'application/json'
         },
-        success: function (res) {
-          this.setData({ //表单清空
-            title: '',
-            text: '',
-            date: Y + '-' + M + '-' + D,
-            imgList: [],
-            tagtxt: '默认',
-            changebg: 'bg-blue'
-          });
+        success: (res) => {
+          if(res.data.msg=='success'){
+            wx.showToast({
+              title: '保存成功',
+              duration: 2000
+            });
+            this.setData({ //表单清空
+              title: '',
+              text: '',
+              date: Y + '-' + M + '-' + D,
+              imgList: [],
+              tagtxt: '默认',
+              changebg: 'bg-blue'
+            });
+          }
+        },
+        fail:function(res){
           wx.showToast({
-            title: '保存成功',
+            title: '保存失败',
             duration: 2000
           });
         }
+      });
+    } else if (skey != '' && (title == '' || text == '' || imgList == '[]')){
+      wx.showToast({
+        title: '提交为空！',
+        icon:'none',
+        duration: 2000
       });
     }
     

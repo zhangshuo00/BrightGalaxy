@@ -1,4 +1,5 @@
 //app.js
+console.log('llllllllllllll')
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -8,10 +9,26 @@ App({
 
     // 登录
     wx.login({
-      success: res => {
+      success: function (res) {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.request({
+          url: 'https://abc.acrosstheuniverse.top/login',
+          method: 'POST',
+          data: { code: res.code },
+          header: {
+            'content-type': 'application/json'
+          },
+          success: function (res) {
+            try {
+              wx.setStorageSync('skey', res.data.skey)
+            } catch (e) {
+
+            }
+          }
+        })
       }
-    })
+    }),
+  
     // 获取用户信息
     wx.getSetting({
       success: res => {

@@ -10,7 +10,7 @@
 
 <view class="" wx:for="{{current}}" wx:key>
   <view class="cu-timeline {{index==flag?'':'outbox'}}">
-    <view class="cu-time time">{{item.date}}</view>
+    <view class="cu-time time">{{item.time}}</view>
     <view class="cu-item {{item.tag=='默认'?'text-blue':''}} {{item.tag=='时事'?'text-red':''}} {{item.tag=='新闻'?'text-orange':''}} {{item.tag=='生活'?'text-green':''}} {{item.tag=='旅游'?'text-pink':''}} {{item.tag=='情感'?'text-purple':''}}">
       <view class="content">
         <view
@@ -23,7 +23,7 @@
           class="{{index!=flag?'cuIcon-unfold':'cuIcon-fold'}} ishide text-black" 
           bindtap="ishidebox"></text>
         </view>
-        <view>{{item.text==''?'':item.text}}</view>
+        <view>{{item.content==''?'':item.content}}</view>
         <view 
         style="display:{{item.imgs.length==0?'none':''}}"
         wx:for="{{item.imgs}}" 
