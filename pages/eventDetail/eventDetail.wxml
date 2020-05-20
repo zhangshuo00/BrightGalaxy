@@ -18,19 +18,27 @@
     <view class="text-title-big">{{title}}
       <view class="cu-tag round bg-brown">{{dynasty}}</view>
     </view>
-    <view class="text-title-small">1919年青年学生组织的爱国运动</view>
+    <view class="text-title-small" wx:if='{{shortdes}}'>1919年青年学生组织的爱国运动</view>
   </view>
   <!-- 卡片信息 -->
   <view class="text-card">
     <view class="text-card-tag">
       <text class="text-card-tag-name">中文名</text>
-      <text class="text-card-tag-text">五四运动</text>
+      <text class="text-card-tag-text">{{title}}</text>
     </view>
-    <view class="text-card-tag">
+    <view class="text-card-tag" wx:if='{{entitle}}'>
       <text class="text-card-tag-name">外文名</text>
       <text class="text-card-tag-text">May Fourth Movement </text>
     </view>
-    <view class="text-card-tag">
+    <view class="text-card-tag" wx:if='{{time}}'>
+      <text class="text-card-tag-name">时    间</text>
+      <text class="text-card-tag-text">{{time}}</text>
+    </view>
+    <view class="text-card-tag" wx:if='{{dynasty}}'>
+      <text class="text-card-tag-name">朝    代</text>
+      <text class="text-card-tag-text">{{dynasty}}</text>
+    </view>
+    <view class="text-card-tag" wx:if='{{shortdes}}'>
       <text class="text-card-tag-name">性    质</text>
       <text class="text-card-tag-text">毫不妥协的反帝反封建的爱国运动</text>
     </view>

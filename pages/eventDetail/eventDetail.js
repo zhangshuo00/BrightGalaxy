@@ -34,7 +34,15 @@ Page({
       id: 6,
       type: 'image',
       url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
-    }],
+      }],
+    title: '',
+    shortdes: '',
+    entitle: '',
+    time: '',
+    text: '',
+    dyid: '',
+    historyid: '',
+    dynasty: '',
   },
 
   /**
@@ -42,8 +50,22 @@ Page({
    */
   onLoad: function(options) {
     console.log(options);
+    // wx.request({
+    //   url: 'https://www.mxnzp.com/api/convert/translate?content='+options.title+'from=zh&to=en&app_id=xsjlkymfpkorugmi&app_secret=QVUvOW4yWmJGZlg5ZnBXVGVsVk9jQT09',
+    //   method: 'GET',
+    //   header: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   success: function(res){
+    //     console.log(res)
+    //   },
+    //   fail: function(err){
+    //     console.log(err);
+    //   }
+    // })
     this.setData({
       title: options.title,
+      entitle: options.entitle,
       time: options.time.split('年')[0] + '年',
       text: options.text,
       dyid: options.dyid,

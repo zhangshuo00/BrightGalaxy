@@ -2,7 +2,7 @@
 
 <view>
   <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-    <swiper-item wx:for="{{swiperList}}" wx:key>
+    <swiper-item wx:for="{{swiperList}}" wx:key='swiper'>
       <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
       <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
     </swiper-item>
@@ -55,11 +55,14 @@
     <view class="event-head-dot"></view>
     <text class="event-head-text">历史上的今天</text>
   </view>
-  <view class="event-list">
-    <view class="event-card2" wx:for="{{eventlist}}" wx:key>
-          <view class="cu-tag round bg-brown event-card-time2">{{item.time}}</view>
-          <view class="event-card-text2">{{item.text}}</view>
+  <view class="event-list" wx:if='{{eventlist}}'>
+    <view class="event-card2" wx:for="{{eventlist}}" wx:key='eventlist'>
+      <view class="cu-tag round bg-brown event-card-time2">{{item.time}}</view>
+      <view class="event-card-text2">{{item.text}}</view>
     </view>
+  </view>
+  <view class="event-list" wx:if='{{eventlist.length==0}}'>
+    <text>无历史上的今天</text>
   </view>
 </view>
 <!-- <view class="event">

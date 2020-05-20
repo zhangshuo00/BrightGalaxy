@@ -9,10 +9,13 @@
     <text class="event-head-text">历史上的{{title}}</text>
   </view>
   <view class="event-list">
-    <view class="event-card2" wx:for="{{list}}" wx:key>
+    <view class="event-card2" wx:for="{{list}}" wx:key wx:if='{{list}}'>
           <view class="cu-tag round bg-brown event-card-time2">{{item.time}}</view>
           <view class="event-card-text2">{{item.text}}</view>
     </view>
+  </view>
+  <view class="event-list" wx:if='{{list.length==0}}'>
+    <text>无历史上的{{title}}</text>
   </view>
 </view>
 

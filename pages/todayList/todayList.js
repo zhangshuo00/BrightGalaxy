@@ -6,11 +6,12 @@ Page({
    */
   data: {
     title: '',
-    list: [{
-      title: 'title',
-      time: 'time',
-      text: 'text'
-    }]
+    list:[],
+    // list: [{
+    //   title: 'title',
+    //   time: 'time',
+    //   text: 'text'
+    // }]
   },
 
   /**

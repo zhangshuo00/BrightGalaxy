@@ -45,11 +45,12 @@ Page({
     ],
     multiIndex: [0, 0],
     time: 'riqi',
-    eventlist: [{
-      title: 'title',
-      time: 'time',
-      text: 'text'
-    }]
+    eventlist:[]
+    // eventlist: [{
+    //   title: 'title',
+    //   time: 'time',
+    //   text: 'text'
+    // }]
   },
 
   MultiChange(e) {
@@ -135,13 +136,13 @@ Page({
       header: {
         'Content-Type': 'application/json'
       },
-      data: { date: '5月13日' }, //time[0] + '月' + time[1] + '日'
+      data: { date: time[0] + '月' + time[1] + '日' }, // '5月13日'
       success(res) {
-        console.log(res.data);
+        // console.log(res.data);
         var eventlistdata=[];
         if(res.data.events){
           res.data.events.map((item,idx)=>{
-            console.log(item.content.split('——'))
+            // console.log(item.content.split('——'))
             var json={
               title:'title',
               time: item.content.split('——')[0],
@@ -152,7 +153,8 @@ Page({
         }
         self.setData({
           eventlist:eventlistdata
-        })
+        });
+        console.log(self.data.eventlist)
       },
       fail(err) {
         console.log(err)

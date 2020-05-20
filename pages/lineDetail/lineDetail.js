@@ -6,11 +6,12 @@ Page({
    */
   data: {
     dynasty:'',
-    list: [{
-      title: 'title',
-      time: 'time',
-      text: 'text'
-    }]
+    list:[],
+    // list: [{
+    //   title: 'title',
+    //   time: 'time',
+    //   text: 'text'
+    // }]
   },
 
  JumpDetail(e){
