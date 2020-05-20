@@ -1,30 +1,6 @@
 // pages/personalLine/personalLine.js
-//模拟后台数据
-var allData=[
-  {
-    'title': '标题1', 'text': '哈哈哈哈哈哈', 'imgs': ['https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg', 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg'], 'date': '2020-3-14', 'tag': '默认'},
-  {
-    'title': '', 'text': '哈哈哈哈哈哈', 'imgs': ['https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg', 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg'], 'date': '2020-3-14', 'tag': '默认'},
-  {
-    'title': '', 'text': '哈哈哈哈哈哈', 'imgs': ['https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg', 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg'], 'date': '2020-3-14', 'tag': '时事'},
-  { 'title': '标题2', 'text': '啦啦啦啦啦啦啦', 'imgs': ['https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg'], 'date': '2019-2-14', 'tag': '情感' },
-  { 'title': '标题3', 'text': '啦啦啦啦啦啦啦', 'imgs': ['https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg', 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg', 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg'], 'date': '2019-2-14', 'tag': '时事' },
-  { 'title': '标题4', 'text': '啦啦啦啦啦啦啦', 'imgs': ['https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg'], 'date': '2019-2-14', 'tag': '新闻' }, { 'title': '标题5', 'text': '啦啦啦啦啦啦啦', 'imgs': ['https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg'], 'date': '2019-2-14', 'tag': '旅游' },
-{ 'title': '标题6', 'text': '啦啦啦啦啦啦啦', 'imgs': [], 'date': '2019-2-14', 'tag': '生活' }];
 
-var event=[{
-  'title': '', 'text': '哈哈哈哈哈哈', 'imgs': ['https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg', 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg'], 'date': '2020-3-14', 'tag': '时事'
-}, {
-  'title': '标题3', 'text': '啦啦啦啦啦啦啦', 'imgs': ['https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg', 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg', 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg'], 'date': '2019-2-14', 'tag': '时事' }];//时事
-    
-var news = [{ 'title': '标题4', 'text': '啦啦啦啦啦啦啦', 'imgs': ['https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg'], 'date': '2019-2-14', 'tag': '新闻' }];//新闻
-      
-var life=[{ 'title': '标题6', 'text': '啦啦啦啦啦啦啦', 'imgs': [], 'date': '2019-2-14', 'tag': '生活' }];
-//生活
-        
-var travel=[{ 'title': '标题5', 'text': '啦啦啦啦啦啦啦', 'imgs': ['../../images/about.png'], 'date': '2019-2-14', 'tag': '旅游' }];//旅游
-
-var love = [{ 'title': '标题2', 'text': '啦啦啦啦啦啦啦', 'imgs': ['https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg'], 'date': '2019-2-14', 'tag': '情感' }];
+var allData = [], event = [], news = [], life = [], travel = [], love = [];
 
 Page({
 
@@ -149,41 +125,66 @@ Page({
    */
   onLoad: function (options) {
     //请求后台数据 对6个数组重新赋值allData，event，news，life，travel，love
-    wx.request({
-      method: "GET",
-      url: "",
-      data: {},//请求参数
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        this.setData({  //请求成功 传入数据
-          current: allData,
-          allData: allData,
-          event: event,//时事
-          news: news,//新闻
-          life: life,//生活
-          travel: travel,//旅游
-          love: love //感情
-        });
-      },
-      fail: function () {
-        wx.showToast({
-          title: '请求失败！',
-          icon: 'none',
-          duration: 2000
-        });
-      }
-    });
-    this.setData({  //加入接口后删除此段代码
-      current:allData,
-      allData: allData,
-      event: event,//时事
-      news: news,//新闻
-      life: life,//生活
-      travel: travel,//旅游
-      love: love //感情
-    });
+    var skey = wx.getStorageSync('skey');
+    if(skey!=''){
+      wx.request({
+        method: "POST",
+        url: "https://abc.acrosstheuniverse.top/getNotes",
+        data: { skey:skey},//请求参数
+        header: {
+          'content-type': 'application/json'
+        },
+        success: (res) => {
+          if(res.data.msg=='success'){
+            var resall = res.data.notes; 
+            resall.sort(function (a, b) { return b['time'] < a['time'] ? 1 : -1 }).reverse();
+            for(var i=0;i<resall.length;i++){
+              var thenote = resall[i];
+              thenote.time = thenote.time.slice(0, 4) + '.' + thenote.time.slice(5, 7) + '.' + thenote.time.slice(8);
+              allData.push(thenote);             
+              if (resall[i].tag=='时事'){
+                event.push(thenote);
+              } else if (resall[i].tag == '新闻'){
+                news.push(thenote);
+              } else if (resall[i].tag == '生活') {
+                life.push(thenote);
+              } else if (resall[i].tag == '旅游') {
+                travel.push(thenote);
+              } else if (resall[i].tag == '情感') {
+                love.push(thenote);
+              }
+            }
+            
+            this.setData({  
+              current: allData,
+              allData: allData,
+              event: event,//时事
+              news: news,//新闻
+              life: life,//生活
+              travel: travel,//旅游
+              love: love //感情
+            });
+          }
+        },
+        fail: function () {
+          wx.showToast({
+            title: '请求失败！',
+            icon: 'none',
+            duration: 2000
+          });
+        }
+      });
+    }
+    
+    // this.setData({  //加入接口后删除此段代码
+    //   current:allData,
+    //   allData: allData,
+    //   event: event,//时事
+    //   news: news,//新闻
+    //   life: life,//生活
+    //   travel: travel,//旅游
+    //   love: love //感情
+    // });
 
   },
 

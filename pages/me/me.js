@@ -25,6 +25,7 @@ Page({
       var that = this;
       wx.getUserInfo({
           success: function(res){
+            console.log('sss')
               that.setData({
                   userInfo:{
                       nickName: res.userInfo.nickName,
@@ -45,11 +46,11 @@ Page({
       var that = this;
       wx.checkSession({
           success: function () {
-              //console.log('处于登录态');
-              that.login();
+              console.log('处于登录态');
+              that.login();         
           },
           fail: function () {
-              //console.log('需要重新登录');
+              console.log('需要重新登录');
               wx.login({
                   success: function (res) {
                       // console.log(res.code)
