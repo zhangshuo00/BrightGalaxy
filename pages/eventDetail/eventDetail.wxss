@@ -45,11 +45,16 @@
   flex: 5;
 }
 
-.text-sumbox {
+event-text{
   padding-top: 20rpx;
-  padding-bottom: 20rpx;
+  padding-bottom: 20rpx;}
+.text-sumbox {
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
 }
-
+.text-sum{
+  /* background: #568; */
+}
 .event-head{
   height: 70rpx;
   /* padding: 10rpx 0; */

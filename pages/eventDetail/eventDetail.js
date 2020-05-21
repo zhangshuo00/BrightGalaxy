@@ -67,7 +67,7 @@ Page({
       title: options.title,
       entitle: options.entitle,
       time: options.time.split('年')[0] + '年',
-      text: options.text,
+      text: options.text.split('@'),//.replace(/@/g, '\n\r &nbsp;&nbsp;&nbsp;&nbsp;'),
       dyid: options.dyid,
       historyid: options.historyid,
       dynasty:options. dynasty

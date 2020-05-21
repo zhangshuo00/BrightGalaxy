@@ -39,73 +39,74 @@ Page({
     TabCur: 0,
     scrollLeft: 0,
     CustomBar: app.globalData.CustomBar,
-    icon: [{
-      name: '原始',
-      isShow: true
-    }, {
-      name: '夏',
-      isShow: true
-    }, {
-      name: '商',
-      isShow: true
-    }, {
-      name: '周',
-      isShow: true
-    }, {
-      name: '春秋',
-      isShow: true
-    }, {
-      name: '战国',
-      isShow: true
-    }, {
-      name: '秦',
-      isShow: true
-    }, {
-      name: '汉',
-      isShow: true
-    }, {
-      name: '三国',
-      isShow: true
-    }, {
-      name: '晋',
-      isShow: true
-    }, {
-      name: '十六国',
-      isShow: true
-    }, {
-      name: '南北朝',
-      isShow: true
-    }, {
-      name: '隋',
-      isShow: true
-    }, {
-      name: '唐',
-      isShow: true
-    }, {
-      name: '五代',
-      isShow: true
-    }, {
-      name: '宋',
-      isShow: true
-    }, {
-      name: '辽',
-      isShow: true
-    }, {
-      name: '金',
-      isShow: true
-    }, {
-      name: '元',
-      isShow: true
-    }, {
-      name: '明',
-      isShow: true
-    }, {
-      name: '清',
-      isShow: true
-    }, {
-      name: '近现代',
-      isShow: true
-    }],
+    icon:[],
+    // icon: [{
+    //   name: '原始',
+    //   isShow: true
+    // }, {
+    //   name: '夏',
+    //   isShow: true
+    // }, {
+    //   name: '商',
+    //   isShow: true
+    // }, {
+    //   name: '周',
+    //   isShow: true
+    // }, {
+    //   name: '春秋',
+    //   isShow: true
+    // }, {
+    //   name: '战国',
+    //   isShow: true
+    // }, {
+    //   name: '秦',
+    //   isShow: true
+    // }, {
+    //   name: '汉',
+    //   isShow: true
+    // }, {
+    //   name: '三国',
+    //   isShow: true
+    // }, {
+    //   name: '晋',
+    //   isShow: true
+    // }, {
+    //   name: '十六国',
+    //   isShow: true
+    // }, {
+    //   name: '南北朝',
+    //   isShow: true
+    // }, {
+    //   name: '隋',
+    //   isShow: true
+    // }, {
+    //   name: '唐',
+    //   isShow: true
+    // }, {
+    //   name: '五代',
+    //   isShow: true
+    // }, {
+    //   name: '宋',
+    //   isShow: true
+    // }, {
+    //   name: '辽',
+    //   isShow: true
+    // }, {
+    //   name: '金',
+    //   isShow: true
+    // }, {
+    //   name: '元',
+    //   isShow: true
+    // }, {
+    //   name: '明',
+    //   isShow: true
+    // }, {
+    //   name: '清',
+    //   isShow: true
+    // }, {
+    //   name: '近现代',
+    //   isShow: true
+    // }],
   },
 
   tabSelect(e) {
