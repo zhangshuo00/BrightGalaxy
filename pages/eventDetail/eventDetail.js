@@ -49,7 +49,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options);
+    console.log('op',options);
     // wx.request({
     //   url: 'https://www.mxnzp.com/api/convert/translate?content='+options.title+'from=zh&to=en&app_id=xsjlkymfpkorugmi&app_secret=QVUvOW4yWmJGZlg5ZnBXVGVsVk9jQT09',
     //   method: 'GET',
@@ -71,7 +71,8 @@ Page({
       dyid: options.dyid,
       historyid: options.historyid,
       dynasty:options. dynasty
-    })
+    });
+    console.log('te',this.data.text)
   },
 
   /**
