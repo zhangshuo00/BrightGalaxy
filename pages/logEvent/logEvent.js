@@ -42,6 +42,7 @@ Page({
       sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album'], //从相册选择
       success: (res) => {
+        console.log(res.tempFilePaths,'pp')
         if (this.data.imgList.length != 0) {
           this.setData({
             imgList: this.data.imgList.concat(res.tempFilePaths)
@@ -144,6 +145,16 @@ Page({
               tagtxt: '默认',
               changebg: 'bg-blue'
             });
+            setTimeout(()=>{
+              wx.switchTab({
+                url: '../personalLine/personalLine',
+                success() {
+                  var page = getCurrentPages().pop();
+                  if (page == undefined || page == null) return;
+                  page.onLoad();
+                }
+              });
+            },2000);
           }
         },
         fail:function(res){

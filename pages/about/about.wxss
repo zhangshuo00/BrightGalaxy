@@ -1,0 +1,20 @@
+/* pages/about/about.wxss */
+page{
+  padding: 10%;
+}
+.aboutbox{
+  width: 80%;
+  border-radius: 10rpx;
+  padding: 5%;
+  background: #fff;
+}
+.title{
+  color: rgb(159, 159, 250);
+  text-align: center;
+  margin-bottom: 5%;
+}
+.text1{
+  color: rgb(103, 103, 105);
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+}

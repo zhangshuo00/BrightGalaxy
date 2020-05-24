@@ -74,6 +74,17 @@ Page({
           }
       })
   },
+
+  gotoback:function(){
+    wx.navigateTo({
+      url: '../feedback/feedback'
+    });
+  },
+  goabout: function () {
+    wx.navigateTo({
+      url: '../about/about'
+    });
+  },
   
 
   /**

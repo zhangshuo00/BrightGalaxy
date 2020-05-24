@@ -1,0 +1,18 @@
+<!--pages/feedback/feedback.wxml-->
+<view>
+<form bindsubmit='formSubmit' data-target="Modal">
+  <view class="cu-form-group">
+		<view class="title">手机号</view>
+		<input placeholder="必填" name="title" value="{{title}}"></input>
+	</view>
+  <view class="cu-form-group">
+		<textarea style="height:300rpx" name="text" value="{{text}}" maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="有什么问题反馈给我们哦..."></textarea>
+	</view>
+  <view class="cu-bar btn-group setfixed">
+    <button 
+    form-type='submit'
+    class="cu-btn bg-blue shadow-blur round lg"
+    >提交</button>
+  </view>
+ </form>
+</view>

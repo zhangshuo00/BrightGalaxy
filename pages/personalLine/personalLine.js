@@ -175,16 +175,6 @@ Page({
         }
       });
     }
-    
-    // this.setData({  //加入接口后删除此段代码
-    //   current:allData,
-    //   allData: allData,
-    //   event: event,//时事
-    //   news: news,//新闻
-    //   life: life,//生活
-    //   travel: travel,//旅游
-    //   love: love //感情
-    // });
 
   },
 

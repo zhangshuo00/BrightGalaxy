@@ -7,13 +7,13 @@
   </view>
  
   <view class="cu-list menu margin-top">
-    <view class="cu-item arrow">
+    <view class="cu-item arrow" bindtap="gotoback">
       <view class="content">
         <text class="cuIcon-writefill text-orange"></text>
         <text class="text-grey">反馈</text>
       </view>
     </view>
-    <view class="cu-item arrow">
+    <view class="cu-item arrow" bindtap="goabout">
       <view class="content">
         <text class="cuIcon-circlefill text-green"></text>
         <text class="text-grey">关于</text>
