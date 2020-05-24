@@ -123,6 +123,7 @@ Page({
     });
     
     this.fetchdynasty();
+    this.fetchall();
     console.log('onload',this.data.icon)
   },
 
@@ -183,8 +184,10 @@ Page({
     this.fetchlist();
   },
   VerticalMain(e) {
+    console.log('sxroll');
+    console.log(e);
     let that = this;
-    let list = this.data.list;
+    let list = this.data.icon;
     let tabHeight = 0;
     if (this.data.load) {
       for (let i = 0; i < list.length; i++) {
@@ -209,7 +212,8 @@ Page({
           VerticalNavTop: (list[i].id - 1) * 50,
           TabCur: list[i].id
         })
-        that.fetchlist();
+        console.log(that.data.TabCur)
+        // that.fetchlist();
         return false
       }
     }
@@ -350,6 +354,60 @@ Page({
     var data = this.data.icon[dynastyid].list[listid];
     wx.navigateTo({
       url: '/pages/eventDetail/eventDetail?dynasty=' + this.data.icon[dynastyid].name + '&title=' + data.title + '&time=' + data.time + '&text=' + data.content + '&dyid=' + data.dyid + '&historyid=' + data.historyid,
+    })
+  },
+  fetchall: function () {
+    var self = this;
+    wx.request({
+      url: 'https://abc.acrosstheuniverse.top/getAll',
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      // data: { "dyname": "秦朝" },
+      success: function (res) {
+        // console.log(res.data);
+        var icondata = []
+        // if(res.data.dynasty){
+        res.data.map((item, idx) => {
+          // console.log(item);
+          var listdata = [];
+          if (item.items) {
+            item.items.map((listitem, idx) => {
+              var json = {
+                title: listitem.title,
+                time: listitem.time.split('年')[0] + '年',
+                text: listitem.content.substr(0, 40) + '...',
+                content: listitem.content,
+                dyid: listitem.dyid,
+                historyid: listitem.historyid
+              }
+              json.text = json.text.replace(/\\n/g, ' ');
+              json.content = json.content.replace(/\?/g, '？');
+              json.content = json.content.replace(/\\n/g, '@');
+              listdata.push(json);
+            });
+          }
+          let json = {
+            isShow: true,
+            name: item.dynasty_name,
+            dyid: item.dyid,
+            id: idx,
+            time: item.dynasty_time,
+            list: listdata
+          };
+          icondata.push(json);
+        })
+        // };
+        // console.log(icondata)
+        self.setData({
+          icon: icondata
+        })
+        // self.fetchlist();
+      },
+      fail(err) {
+        console.log(err)
+      }
     })
   },
 })

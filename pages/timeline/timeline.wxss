@@ -24,7 +24,7 @@
 }
 
 .VerticalNav.nav .cu-item {
-  width: 100%;
+  width: 150rpx;
   text-align: center;
   background-color: #fff;
   margin: 0;
