@@ -39,7 +39,7 @@ Page({
       },
       data: { dyname: options.dynasty},
       success(res) {
-        console.log(res.data);
+        console.log('res',res.data);
         var listdata = [];
         if (res.data) {
           res.data.map((item, idx) => {
@@ -51,13 +51,17 @@ Page({
               dyid: item.dyid,
               historyid: item.historyid
             }
+            json.text = json.text.replace(/\\n/g, ' ');
+            json.content=json.content.replace(/\?/g, '？');
+            json.content=json.content.replace(/\\n/g, '@');
             listdata.push(json);
-          })
+          });
         }
         // console.log(listdata)
         self.setData({
           list: listdata
         })
+        console.log('conent', self.data.list)
       },
       fail(err) {
         console.log(err)
