@@ -6,43 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-
     TabCur: 0,
     MainCur: 0,
     VerticalNavTop: 0,
     list: [],
     load: true,
-
+    searchKey: '',
+    searchResults: [],
     cardCur: 0,
-    swiperList: [{
-      id: 0,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
-    }, {
-      id: 1,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
-    }, {
-      id: 2,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
-    }, {
-      id: 3,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
-    }, {
-      id: 4,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg'
-    }, {
-      id: 5,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big21016.jpg'
-    }, {
-      id: 6,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
-    }],
     icon: [],
     // icon: [{
     //   name: '原始',
@@ -265,7 +236,7 @@ Page({
         },
         data: { dyname: self.data.icon[self.data.TabCur].name },
         success(res) {
-          console.log('res', res.data);
+          // console.log('res', res.data);
           var listdata = [];
           if (res.data) {
             res.data.map((item, idx) => {
@@ -289,7 +260,7 @@ Page({
           self.setData({
             icon: icon
           })
-          console.log('conent', self.data.list)
+          // console.log('conent', self.data.list)
         },
         fail(err) {
           console.log(err)
@@ -355,6 +326,31 @@ Page({
     wx.navigateTo({
       url: '/pages/eventDetail/eventDetail?dynasty=' + this.data.icon[dynastyid].name + '&title=' + data.title + '&time=' + data.time + '&text=' + data.content + '&dyid=' + data.dyid + '&historyid=' + data.historyid,
     })
+  },
+  searchHistory(){
+    // 搜索历史事件,输入框传入参数，发起请求
+    var self = this;
+    wx.navigateTo({
+      url: '/pages/searchResults/searchResults?keyword=' + self.data.searchKey,
+    })
+    // wx.request({
+    //   url: 'https://abc.acrosstheuniverse.top/searchHistory',
+    //   method: 'GET',
+    //   data:{
+    //     "keyword": self.data.searchKey
+    //   },
+    //   success: function(res){
+    //     // console.log(res.data)
+    //     self.data.searchResults = res.data;
+    //     wx.navigateTo({
+    //       url: '/pages/searchResults/searchResults?keyword=' + self.data.searchKey,
+    //     })
+    //   }
+    // })
+  },
+  searchDetail(e){
+    var self = this;
+    self.data.searchKey = e.detail.value;
   },
   fetchall: function () {
     var self = this;

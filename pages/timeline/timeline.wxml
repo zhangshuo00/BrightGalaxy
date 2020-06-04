@@ -6,11 +6,13 @@
 <view class="cu-bar search bg-white">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
-    <input type="text" placeholder="搜索朝代/事件" confirm-type="search"></input>
+    <input type="text" placeholder="搜索历史事件" confirm-type="search" bindinput="searchDetail"></input>
   </view>
-  <view class="action">
-    <button class="cu-btn bg-brown shadow-blur round">搜索</button>
+  <!-- <navigator url="/pages/searchResults/searchResults" open-type="navigate"> -->
+    <view class="action">
+    <button bindtap="searchHistory" class="cu-btn bg-brown shadow-blur round">搜索</button>
   </view>
+  <!-- </navigator> -->
 </view>
 
 <view class="VerticalBox">
@@ -44,35 +46,3 @@
     </view>
   </scroll-view>
 </view>
-
-
-
-
-<!-- 轮播图 -->
-<!-- <view>
-  <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-    <swiper-item wx:for="{{swiperList}}" wx:key='swiper'>
-      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
-      <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
-    </swiper-item>
-  </swiper>
-</view> -->
-<!-- 搜索框 -->
-<!-- <view class="cu-bar search bg-white">
-  <view class="search-form round">
-    <text class="cuIcon-search"></text>
-    <input type="text" placeholder="搜索朝代/事件" confirm-type="search"></input>
-  </view>
-  <view class="action">
-    <button class="cu-btn bg-brown shadow-blur round">搜索</button>
-  </view>
-</view> -->
-<!-- 宫格展示 -->
-<!-- <view class="cu-list grid col-3">
-  <view class="cu-item" wx:for="{{icon}}" wx:key='grid' wx:if="{{item.isShow}}">
-    <!-- <text class="cuIcon-{{item.name}} lg text-gray"></text> -->
-    <!-- <navigator url="/pages/lineDetail/lineDetail?dynasty={{item.name}}" open-type="navigate" class="cu-item">
-      <view class="text-brown">{{item.name}}</view>
-    </navigator>
-  </view>
-</view> -->

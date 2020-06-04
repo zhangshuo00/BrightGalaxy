@@ -8,6 +8,7 @@
     "pages/personalLine/personalLine",
     "pages/todayList/todayList",
     "pages/lineDetail/lineDetail",
+    "pages/searchResults/searchResults",
     "pages/feedback/feedback",
     "pages/about/about"
   ],

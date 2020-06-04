@@ -1,0 +1,11 @@
+<!--pages/searchResults/searchResults.wxml-->
+<view  wx:for="{{searchResults}}" wx:for-index="idx" wx:for-item='cell' wx:key='idx' class="list-card">
+    <!-- <view class="cu-capsule radius" style="max-width:350rpx" bindtap="jumpToDetail" id="{{cell.historyid}}">
+        <view class="cu-tag bg-brown">{{cell.title}}</view>
+        <view class="cu-tag line-brown">{{cell.time}}</view>
+    </view> -->
+    <view class="list-card-item" bindtap="jumpToDetail" id="{{cell.historyid}}">
+        <view class="card-time">{{cell.time}}</view>
+        <view class="card-title">{{cell.title}}</view>
+    </view>
+</view>
