@@ -4,7 +4,7 @@
 .timebox{
   /* height: 120rpx; */
   padding: 30rpx;
-  background: #409EFF;
+  background: #a5673F;
   text-align: center;
 }
 .time{
@@ -33,7 +33,7 @@
   height: 100rpx;
   padding: 25rpx;
   border-radius: 100rpx;
-  background: #409EFF;
+  background: #a5673F;
   margin: 0 auto;
   text-align: center;
   font-size: 35rpx;
@@ -65,13 +65,13 @@
   margin-top: 15rpx;
   float: left;
   border-radius: 20rpx;
-  background: #409EFF;
+  background: #a5673F;
 }
 .event-head-text{
   float: left;
   font-size: 35rpx;
   font-weight: 1000;
-  color: #409EFF;
+  color: #a5673F;
   margin-left: 15rpx;
   /* background: #000; */
 }
@@ -108,7 +108,7 @@
 }
 .event-card-time{
   font-size: 30rpx;
-  color: #409EFF;
+  color: #a5673F;
   margin-left: 20rpx;
 }
 .event-card-text{

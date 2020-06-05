@@ -1,4 +1,4 @@
-<view>
+<view class="me">
   <view class="headbox">
     <image src="{{userInfo.avatarUrl}}" class="headimg"></image>
     <button class="username" open-type="getUserInfo" bindtap="login"
@@ -6,18 +6,14 @@
     >{{userInfo.nickName}}</button>
   </view>
  
-  <view class="cu-list menu margin-top">
-    <view class="cu-item arrow" bindtap="gotoback">
-      <view class="content">
-        <text class="cuIcon-writefill text-orange"></text>
-        <text class="text-grey">反馈</text>
-      </view>
+  <view class="me-list">
+    <view class="me-feedback" bindtap="gotoback">
+      <text class="cuIcon-writefill text-orange"></text>
+      <text class="text-grey" style="margin-left:10px;">反馈</text>
     </view>
-    <view class="cu-item arrow" bindtap="goabout">
-      <view class="content">
-        <text class="cuIcon-circlefill text-green"></text>
-        <text class="text-grey">关于</text>
-      </view>
+    <view class="me-about" bindtap="goabout">
+      <text class="cuIcon-circlefill text-green"></text>
+      <text class="text-grey" style="margin-left:10px">关于</text>
     </view>
   </view>
   <!-- <view class="cu-bar btn-group setfixed outlogin">

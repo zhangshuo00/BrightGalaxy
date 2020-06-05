@@ -35,7 +35,7 @@
   </view>
   <view class="event-list" wx:if='{{eventlist}}'>
     <view class="event-card2" wx:for="{{eventlist}}" wx:key='eventlist'>
-      <view class="cu-tag round bg-blue event-card-time2">{{item.time}}</view>
+      <view class="cu-tag round bg-brown event-card-time2">{{item.time}}</view>
       <view class="event-card-text2">{{item.text}}</view>
     </view>
   </view>

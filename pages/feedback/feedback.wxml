@@ -1,5 +1,6 @@
 <!--pages/feedback/feedback.wxml-->
-<view>
+<!-- <view style="display:flex;justify-content:center;"> -->
+<view class="feedback">
 <form bindsubmit='formSubmit' data-target="Modal">
   <view class="cu-form-group">
 		<view class="title">邮箱</view>
@@ -16,3 +17,4 @@
   </view>
  </form>
 </view>
+<!-- </view> -->

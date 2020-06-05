@@ -1,4 +1,16 @@
 /* pages/feedback/feedback.wxss */
 page{
-  background-color:#fff;
+  padding: 10%;
+}
+.feedback{
+  width: 80%;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #e7ecfb;
+  box-shadow: 0 0 30px rgba(211, 220, 248, .3);
+  padding: 10px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

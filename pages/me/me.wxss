@@ -1,9 +1,35 @@
 /* pages/me/me.wxss */
-
+.me{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.me-list{
+  width: 80%;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #e7ecfb;
+  box-shadow: 0 0 30px rgba(211, 220, 248, .3);
+  padding: 10px;
+  margin-top: 15px;
+}
+.me-feedback{
+  height: 50px;
+  margin: 5% 0 0 8%;
+}
+.me-about{
+  height: 30px;
+  margin: 0 0 0 8%;
+}
 .headbox{
-  background: rgb(50, 179, 140);
-  width: 100%;
-  height: 320rpx;
+  width: 80%;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #e7ecfb;
+  box-shadow: 0 0 30px rgba(211, 220, 248, .3);
+  padding: 10px;
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,9 +39,12 @@
   width: 150rpx;
   height: 150rpx;
   border-radius: 75rpx;
+  margin-top: 5%;
 }
 .username{
-  font-size: 35rpx;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
   margin-top: 20rpx;
 }
 .outlogin{
