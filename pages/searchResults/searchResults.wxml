@@ -1,11 +1,23 @@
 <!--pages/searchResults/searchResults.wxml-->
-<view  wx:for="{{searchResults}}" wx:for-index="idx" wx:for-item='cell' wx:key='idx' class="list-card">
-    <!-- <view class="cu-capsule radius" style="max-width:350rpx" bindtap="jumpToDetail" id="{{cell.historyid}}">
-        <view class="cu-tag bg-brown">{{cell.title}}</view>
-        <view class="cu-tag line-brown">{{cell.time}}</view>
-    </view> -->
-    <view class="list-card-item" bindtap="jumpToDetail" id="{{cell.historyid}}">
-        <view class="card-time">{{cell.time}}</view>
-        <view class="card-title">{{cell.title}}</view>
+<view wx:if="{{searchResults.length !== 0}}">
+    <view  wx:for="{{searchResults}}" wx:for-index="idx" wx:for-item='cell' wx:key='idx' class="list-card">
+        <!-- <view class="list-card-item" bindtap="jumpToDetail" id="{{cell.historyid}}">
+            <view class="card-time">{{cell.time}}</view>
+            <view class="card-title">{{cell.title}}</view>
+        </view> -->
+        <view class="list-card-item">
+            <view class="card-top">
+                <view class="cu-tag bg-brown">{{cell.title}}</view>
+                <view class="cu-tag line-brown">{{cell.time}}</view>
+            </view>
+            <view class="card-bottom">{{cell.content}}</view>
+        </view>
     </view>
 </view>
+<view wx:else class="list-card">
+    <view class="card-noresult">
+        <view class="card-title">抱歉，未找到相应的结果</view>
+        <view class="card-feedback">您可以与我们反馈</view>
+    </view> 
+</view> 
+

@@ -46,11 +46,22 @@ Page({
               "keyword": self.data.keyword
             },
             success: function(res){
-              console.log(res.data)
+              // console.log(res.data)
             //   self.data.searchResults = res.data;
-              self.setData({
-                  searchResults: res.data
-              })
+              if(res.data.msg === 'null'){
+                // 显示未找到该结果
+                self.setData({
+                  searchResults: []
+                })
+              }else{
+                for(var i=0;i<res.data.result.length;i++){
+                  res.data.result[i].content = res.data.result[i].content.substr(0,40) + '...';
+                }
+                self.setData({
+                  searchResults: res.data.result
+                });
+                
+              }
             }
           })
     },
